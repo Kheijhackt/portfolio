@@ -10,7 +10,7 @@ import SectionWrapper from "../components/SectionWrapper";
 
 export default function Contact() {
   const WEB_APP_URL =
-    "https://script.google.com/macros/s/AKfycby4Yvx1dhPRyAnAN3OWxrqv12DZpe3ueGHrRdT5s7YeuqkM_xSVPTHKvqBL8Kns6nk4/exec";
+    "https://script.google.com/macros/s/AKfycbw_wCj1cHDBrHrB4oBrqg3sPSGvnLwJwOb7ceLexun4eN_MB7ndE7YB-vjHCxzyI2zo/exec";
 
   const [formData, setFormData] = useState({
     name: "",
