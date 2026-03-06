@@ -9,8 +9,7 @@ import { useState } from "react";
 import SectionWrapper from "../components/SectionWrapper";
 
 export default function Contact() {
-  const WEB_APP_URL =
-    "https://script.google.com/macros/s/AKfycbw_wCj1cHDBrHrB4oBrqg3sPSGvnLwJwOb7ceLexun4eN_MB7ndE7YB-vjHCxzyI2zo/exec";
+  const API_ROUTE = "/api/contact"; // Use your Vercel serverless function
 
   const [formData, setFormData] = useState({
     name: "",
@@ -34,14 +33,13 @@ export default function Contact() {
     setStatus("");
 
     try {
-      const res = await fetch(WEB_APP_URL, {
+      const res = await fetch(API_ROUTE, {
         method: "POST",
-        body: JSON.stringify(formData),
         headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
 
-      const text = await res.text();
-      const data = JSON.parse(text);
+      const data = await res.json();
 
       if (data.status === "success") {
         setStatus("Message sent successfully!");
