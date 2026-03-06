@@ -4,7 +4,7 @@ import SectionWrapper from "../components/SectionWrapper";
 export default function Home() {
   return (
     <SectionWrapper id="home">
-      <Typography variant="h3">Hi, I'm Calify</Typography>
+      <Typography variant="h3">Hi, I'm Kian</Typography>
 
       <Typography variant="h5">
         Computer Engineer | Software Developer
