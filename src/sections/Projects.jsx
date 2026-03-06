@@ -1,42 +1,56 @@
-import { Typography, Card, CardContent, Grid } from "@mui/material";
+import { Typography } from "@mui/material";
 import SectionWrapper from "../components/SectionWrapper";
+import ProjectCard from "../components/ProjectCard";
 
 export default function Projects() {
-  const projects = [
+  const projectList = [
     {
-      title: "Repertoire Tracker",
-      description:
-        "A mobile app for musicians to organize and track piano repertoire.",
-      tech: "React Native, Django, REST API",
+      title: "Repertoire Tracker App",
+      description: "A mobile app to help musicians track piano repertoire.",
+      technologies: ["React Native", "Django", "REST API", "AsyncStorage"],
+      ctaText: "View Repo",
+      ctaUrl: "https://github.com/yourusername/repertoire-tracker",
     },
     {
-      title: "REST API Backend",
-      description: "A backend API with authentication and CRUD functionality.",
-      tech: "Django, PostgreSQL",
+      title: "Portfolio Website",
+      description: "This portfolio itself, built with React + MUI.",
+      technologies: ["React", "Material UI", "CSS", "Responsive Design"],
+      ctaText: "Visit Site",
+      ctaUrl: "https://yourportfolio.com",
+    },
+    {
+      title: "API Utility Tool",
+      description: "A small utility to test and manage REST APIs efficiently.",
+      technologies: ["Python", "FastAPI", "Postman"],
+      ctaText: "View Repo",
+      ctaUrl: "https://github.com/yourusername/api-tool",
     },
   ];
 
   return (
     <SectionWrapper id="projects">
-      <Typography variant="h4">Projects</Typography>
+      {/* Section Title */}
+      <Typography variant="h4" sx={{ mb: 3 }}>
+        Projects
+      </Typography>
 
-      <Grid container spacing={3} marginTop={2}>
-        {projects.map((p, i) => (
-          <Grid item xs={12} md={6} key={i}>
-            <Card>
-              <CardContent>
-                <Typography variant="h6">{p.title}</Typography>
+      {/* Section Intro */}
+      <Typography sx={{ mb: 2 }}>
+        Here are a few projects I have built to showcase my skills in software
+        development.
+      </Typography>
 
-                <Typography>{p.description}</Typography>
-
-                <Typography>
-                  <strong>Tech:</strong> {p.tech}
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
+      {/* Project Cards */}
+      {projectList.map((proj, i) => (
+        <ProjectCard
+          key={i}
+          title={proj.title}
+          description={proj.description}
+          technologies={proj.technologies}
+          ctaText={proj.ctaText}
+          ctaUrl={proj.ctaUrl}
+        />
+      ))}
     </SectionWrapper>
   );
 }
