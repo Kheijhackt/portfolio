@@ -1,44 +1,31 @@
-import { Typography, Grid, Paper } from "@mui/material";
+import { Typography } from "@mui/material";
 import SectionWrapper from "../components/SectionWrapper";
+import SkillsCard from "../components/SkillsCard";
 
 export default function Skills() {
+  const skillsData = [
+    { title: "Programming", skills: ["JavaScript", "Python"] },
+    { title: "Frameworks", skills: ["React Native", "Django"] },
+    { title: "Tools", skills: ["Git", "GitHub"] },
+    { title: "Concepts", skills: ["REST APIs", "Authentication"] },
+  ];
+
   return (
     <SectionWrapper id="skills">
-      <Typography variant="h4">Skills</Typography>
+      {/* Section Title */}
+      <Typography variant="h4" sx={{ mb: 3 }}>
+        Skills
+      </Typography>
 
-      <Grid container spacing={3} marginTop={2}>
-        <Grid item xs={12} md={3}>
-          <Paper sx={{ padding: 2 }}>
-            <Typography variant="h6">Programming</Typography>
-            <Typography>JavaScript</Typography>
-            <Typography>Python</Typography>
-          </Paper>
-        </Grid>
+      {/* Section Intro */}
+      <Typography sx={{ mb: 2 }}>
+        Here are my main technical skills, organized by category.
+      </Typography>
 
-        <Grid item xs={12} md={3}>
-          <Paper sx={{ padding: 2 }}>
-            <Typography variant="h6">Frameworks</Typography>
-            <Typography>React Native</Typography>
-            <Typography>Django</Typography>
-          </Paper>
-        </Grid>
-
-        <Grid item xs={12} md={3}>
-          <Paper sx={{ padding: 2 }}>
-            <Typography variant="h6">Tools</Typography>
-            <Typography>Git</Typography>
-            <Typography>GitHub</Typography>
-          </Paper>
-        </Grid>
-
-        <Grid item xs={12} md={3}>
-          <Paper sx={{ padding: 2 }}>
-            <Typography variant="h6">Concepts</Typography>
-            <Typography>REST APIs</Typography>
-            <Typography>Authentication</Typography>
-          </Paper>
-        </Grid>
-      </Grid>
+      {/* Skills Cards */}
+      {skillsData.map((item, index) => (
+        <SkillsCard key={index} title={item.title} skills={item.skills} />
+      ))}
     </SectionWrapper>
   );
 }
